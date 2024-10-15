@@ -7,12 +7,11 @@ export default function Home() {
   return (
     <div>
       <div className=" relative">
-        <img className="" src={data?.image.original} alt="" />
+        <img className=" absolute" src={data?.image.original} alt="" />
+        <p className="text-center text-xl">{data?.genres[0]} - {data?.genres[1]} - {data?.genres[2]}</p>
+        <p className="text-center text-xl">{data?.schedule.days} - {data?.schedule.time}</p>
+        <p className="text-center text-xl">{data?.language}</p>
       </div>
-      
-      <p className="text-center text-xl">{data?.genres[0]} - {data?.genres[1]} - {data?.genres[2]}</p>
-      <p className="text-center text-xl">{data?.schedule.days} - {data?.schedule.time}</p>
-      <p className="text-center text-xl">{data?.language}</p>
 
       <h2 className="text-center text-xl">{data?.name}</h2>
       <p className="text-center text-xl">{data?.language}</p>
@@ -23,7 +22,7 @@ export default function Home() {
       <Button>
         <img src="/play.svg" alt="" />
         Play</Button>
-        
+
       <p className="text-center text-xl">{data?._links.previousepisode.name}</p>
     </div>
   );
