@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import useFetch from "./hook/useFetch";
 
 export default function Home() {
@@ -19,11 +20,14 @@ export default function Home() {
 
       <p className="text-center text-xl">{data?.summary}</p>
 
-      <Button>
-        <img src="/play.svg" alt="" />
-        Play</Button>
+      <Button size="default" display="flex">
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.875 8.64952C13.375 8.36084 13.375 7.63916 12.875 7.35048L1.625 0.855291C1.125 0.566615 0.5 0.92746 0.5 1.50481L0.5 14.4952C0.5 15.0725 1.125 15.4334 1.625 15.1447L12.875 8.64952Z" stroke="white"/>
+          </svg>
+          Play
+      </Button>
 
-      <p className="text-center text-xl">{data?._links.previousepisode.name}</p>
+      <Button variant="link">{data?._links.previousepisode.name}</Button>
     </div>
   );
 }
