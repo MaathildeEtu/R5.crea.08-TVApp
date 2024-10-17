@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import useFetch from "./hook/useFetch";
 
 export default function Home() {
@@ -20,7 +21,11 @@ export default function Home() {
 
         {/* Texte */}
         <div className="absolute bottom-4 left-6 flex flex-col items-start justify-start w-full z-10">
-          <p className="text-md text-white">{data?.genres[0]} · {data?.genres[1]} · {data?.genres[2]}</p>
+          <ul className="flex flex-row gap-1">
+            <li><Badge variant="outline">{data?.genres[0]}</Badge></li>
+            <li><Badge variant="outline">{data?.genres[1]}</Badge></li>
+            <li><Badge variant="outline">{data?.genres[2]}</Badge></li>
+          </ul>
           <div className="flex flex-row gap-1">
             <p className="text-white">Release : </p>
             <p className="text-md text-white">{data?.schedule.days} - {data?.schedule.time}</p>
