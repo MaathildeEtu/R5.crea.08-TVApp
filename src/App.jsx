@@ -8,11 +8,11 @@ export default function Home() {
     <div className=" p-5 ">
 
       {/* Head */}
-      <div className="relative overflow-hidden flex flex-col gap-2 justify-center items-center rounded-lg h-80">
+      <div className="relative overflow-hidden flex flex-col gap-2 justify-center items-center rounded-2xl h-80">
 
-        {/* Image */}
+        {/* Affiche Fond */}
         <img className="w-full object-cover" src={data?.image.original} alt="" />
-        {/* Fin Image */}
+        {/* Fin Affiche Fond */}
 
         {/* Cadre d'opacité */}
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-dark h-20"></div>
@@ -32,16 +32,67 @@ export default function Home() {
       {/* Fin Head */}
 
       {/* Contenu */}
-      <div>
-        <h2 className=" text-3xl font-bold">{data?.name}</h2>
-        <p className=" text-xl">{data?.language}</p>
-        <p className=" text-xl">{data?.rating.average}</p>
+      <div className=" pt-2 flex flex-col gap-4">
+            
+        {/* Informations et Affiche */}
+        <div className=" p-2 md:p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <p className=" text-xl">{data?.summary}</p>
+          {/* Information */}
+          <div className=" flex flex-col gap-4 col-span-2">
 
-        <Button><img src="/play.svg" alt="" />Play</Button>
+            {/* Title */}
+            <div className=" flex flex-col">
+              <h2 className=" text-3xl font-bold">{data?.name}</h2>
+              <p className=" text-md font-light">{data?.language}</p>
+              <p className=" text-md font-light">{data?.rating.average}/10</p>
+            </div>
+            {/* Fin Title */}
 
-        <p className=" text-xl">{data?._links.previousepisode.name}</p>
+            {/* Description */}
+            <div>
+              <p className=" text-md font-semibold">Description : </p>
+              <p className=" text-md">{data?.summary}</p>
+            </div>
+            {/* Fin Description */}
+
+            {/* Visionnage */}
+            <div>
+              <p className=" text-md font-semibold">Or watching : </p>
+
+              <div className=" flex flex-row gap-1">
+                <p className=" text-md">Website : {data?.network.name},</p>
+                <a href="{data?.network.country.officialSite}" className=" decoration-solid">Voir le site</a>
+              </div>
+              
+              <div className=" flex flex-row gap-1">
+                <p className=" text-md">{data?.network.country.name},</p>
+                <p className=" text-md">({data?.network.country.code})</p>
+              </div>
+            </div>
+            {/* Fin Visionnage */}
+            
+            {/* Button */}
+            <Button>Play the movie</Button>
+            {/* Fin Button */}
+
+            {/* Episode */}
+            <div>
+              <p className=" text-md font-semibold">Previous episode : </p>
+              <p className=" text-xl">{data?._links.previousepisode.name}</p>
+            </div>
+            {/* Fin Episode */}
+          </div>
+          {/* Fin Information */}
+
+
+          {/* Affiche */}
+          <div className=" rounded-lg overflow-hidden">
+            <img className="w-full object-cover" src={data?.image.original} alt="" />
+          </div>
+          {/* Fin Affiche */}
+        </div>
+        {/* Fin Informations et Affiche */}
+        
       </div>
       {/* Fin Contenu */}
 
