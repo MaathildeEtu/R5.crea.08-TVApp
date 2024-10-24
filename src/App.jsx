@@ -77,7 +77,7 @@ export default function Home() {
                 {/* Description */}
                 <div>
                   <p className=" text-md font-semibold">Description : </p>
-                  <p className=" text-md">{data?.summary}</p>
+                  <p className=" text-md">{data?.summary.replace(regex, "")}</p>
                 </div>
                 {/* Fin Description */}
 
