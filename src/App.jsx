@@ -45,17 +45,11 @@ export default function Home() {
 
               {/* Texte */}
               <div className="absolute bottom-4 left-6 flex flex-col items-start justify-start w-full z-10 gap-2">
-                <ul className="flex flex-row gap-1">
-                  <li>
-                    <Badge variant="outline">{data?.genres[0]}</Badge>
-                  </li>
-                  <li>
-                    <Badge variant="outline">{data?.genres[1]}</Badge>
-                  </li>
-                  <li>
-                    <Badge variant="outline">{data?.genres[2]}</Badge>
-                  </li>
-                </ul>
+              <div className="flex flex-row gap-1">
+            {data?.genres.map((tag) => {
+              return <Badge variant="outline">{tag}</Badge>
+            })}
+            </div>
                 <div className="flex flex-row gap-1">
                   <p className="text-white">Release : </p>
                   <p className="text-md text-white">
@@ -191,6 +185,38 @@ export default function Home() {
     
               </div>
               {/* Fin Carousel */}
+
+              {/* Cast */}
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:flex-row">
+            {data?._embedded.cast.map((people) => {
+              return (
+                <Card className="">
+                  <CardHeader>
+                    <div className="flex flex-row gap-1">
+                      <img
+                        className="h-40 w-full object-cover object-top overflow-hidden"
+                        src={people.person.image.original}
+                        alt="Photo personne"
+                      />
+                      <img
+                        className="h-40 w-full object-cover object-top overflow-hidden"
+                        src={people.character.image?.original}
+                        alt="Photo personnage"
+                      />
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-row gap-1">
+                      <CardDescription className="font-semibold">{people.person.name} </CardDescription>
+                      <CardDescription> dans le rôle de </CardDescription>
+                      <CardDescription className="font-semibold">{people.character.name} </CardDescription>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+          {/* Fin Cast */}
 
             </div>
             {/* Fin Contenu */}
