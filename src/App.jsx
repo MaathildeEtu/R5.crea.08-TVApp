@@ -20,7 +20,7 @@ import {
 import { useState } from "react";
 
 export default function Home() {
-  const [ url, setUrl ] = useState(" under the dome ")
+  const [ url, setUrl ] = useState(" Under the dome ")
   const { data, isLoading, error } = useFetch(`https://api.tvmaze.com/singlesearch/shows?q=${url}&embed[]=episodes&embed[]=cast&embed[]=seasons`);
   console.log(data)
 
@@ -61,7 +61,7 @@ export default function Home() {
 
             {/* Information */}
             <div className=" bg-white p-6 rounded-xl">
-              
+
               {/* Head */}
               <div className="relative overflow-hidden flex flex-col gap-2 justify-center items-center rounded-xl h-80">
                 {/* Affiche Fond */}
@@ -103,7 +103,7 @@ export default function Home() {
                   <div className=" flex flex-col gap-4 col-span-2 justify-between">
                     
                     {/* Top */}
-                    <div className=" flex flex-col gap-2">
+                    <div className=" flex flex-col gap-8">
                       {/* Title */}
                       <div className=" flex flex-col">
                         <h2 className=" text-5xl font-bold">{data?.name}</h2>
