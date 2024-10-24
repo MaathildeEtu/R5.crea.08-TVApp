@@ -39,7 +39,8 @@ export default function Home() {
       {isLoading && <p>loading....</p>}
       {data && (
         <div>
-          
+
+          {/* Content*/}
           <div className=" bg-fond p-5 pb-8 md:pr-14 md:pt-14 md:pl-14 xl:pr-44 xl:pl-44 flex flex-col gap-4 ">
 
             {/* Nav */}
@@ -58,8 +59,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Info */}
+            {/* Information */}
             <div className=" bg-white p-6 rounded-xl">
+              
               {/* Head */}
               <div className="relative overflow-hidden flex flex-col gap-2 justify-center items-center rounded-xl h-80">
                 {/* Affiche Fond */}
