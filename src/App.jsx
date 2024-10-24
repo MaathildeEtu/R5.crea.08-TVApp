@@ -8,12 +8,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 export default function Home() {
   const { data, isLoading, error } = useFetch("/data.json");
 
-  const regex = /(<([^>]+)>)/ig;
-  const result = data?.summary.replace(regex, '');
+  const regex = /(<([^>]+)>)/gi;
 
   return (
     <>
@@ -144,15 +143,34 @@ export default function Home() {
             {/* Fin Informations et Affiche */}
 
             {/* Episode */}
-            <div>
+            <div className=" flex flex-col gap-4 md:flex-row">
               {/* {console.log(data?._embedded.episodes[0].name)} */}
               {data?._embedded.episodes.map((film) => {
-                return <Card>
-                  <CardHeader>
-                    <CardTitle>{film.name}</CardTitle>
-                    <CardDescription>{film.summary}</CardDescription>
-                  </CardHeader> 
+                return (
+                  <Card className="">
+                    <CardHeader>
+                      <img className="h-28 w-full object-cover overflow-hidden" src={film.image.original} alt="Photo episode"/>
+                      <div className=" flex flex-row gap-1 md:flex-col md:gap-0">
+                        <CardDescription>Season : {film.season}</CardDescription>
+                        <CardDescription>Episode : {film.number}</CardDescription>
+                      </div>
+                      <CardTitle>{film.name}</CardTitle>
+                      <CardDescription>
+                        {film.summary.replace(regex, "")}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p>{film.rating.average}/10</p>
+                    </CardContent>
+                    <CardFooter>
+                      {/* Button */}
+                      <Button size="default" display="flex">
+                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.875 8.64952C13.375 8.36084 13.375 7.63916 12.875 7.35048L1.625 0.855291C1.125 0.566615 0.5 0.92746 0.5 1.50481L0.5 14.4952C0.5 15.0725 1.125 15.4334 1.625 15.1447L12.875 8.64952Z" stroke="white"/></svg> Play
+                      </Button>
+                      {/* Fin Button */}
+                    </CardFooter>
                   </Card>
+                );
               })}
             </div>
             {/* Fin Episode */}
