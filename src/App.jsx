@@ -12,6 +12,9 @@ import {
 export default function Home() {
   const { data, isLoading, error } = useFetch("/data.json");
 
+  const regex = /(<([^>]+)>)/ig;
+  const result = data?.summary.replace(regex, '');
+
   return (
     <>
       {isLoading && <p>loading....</p>}
