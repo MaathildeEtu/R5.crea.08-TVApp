@@ -147,7 +147,7 @@ export default function Home() {
                 return <Card>
                   <CardHeader>
                     <CardTitle>{film.name}</CardTitle>
-                    <CardDescription>Card Description</CardDescription>
+                    <CardDescription>{film.summary}</CardDescription>
                   </CardHeader> 
                   </Card>
               })}
