@@ -5,7 +5,8 @@ export default {
   theme: {
   	extend: {
 		backgroundImage : {
-			'gradient-dark' : 'var(--gradient-dark)'
+			'gradient-dark' : 'var(--gradient-dark)',
+			'fond' : 'url("/img-movie-background.jpg")'
 		},
   		borderRadius: {
   			lg: 'var(--radius)',
