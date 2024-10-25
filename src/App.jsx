@@ -40,24 +40,33 @@ export default function Home() {
       {data && (
         <div>
 
-          {/* Content*/}
-          <div className=" bg-fond p-5 pb-8 md:pr-14 md:pt-14 md:pl-14 xl:pr-44 xl:pl-44 flex flex-col gap-4 ">
+          {/* Nav */}
+          <nav className=" fixed w-4/5 left-1/2 -translate-x-1/2 top-10 z-10 bg-white p-6 rounded-xl shadow-2xl">
+            <div className="flex gap-4 justify-between items-center flex-col md:flex-row">
 
-            {/* Nav */}
-            <div className=" bg-white p-6 rounded-xl">
-              <div className=" flex justify-between items-center">
-
-                <div className=" flex flex-row gap-2 items-end">
-                  <img className="h-12" src="/logo-app.png" alt="" />
-                  <p className=" text-xl font-extralight">CineStudio</p>
-                </div>
-
-                <form onSubmit={handlerSearch} className="flex items-center">
-                  <input name="search" type="text" placeholder="Rechercher..." className="pt-2 pb-2 pr-4 pl-4 rounded-l-xl border-2 border-gray-100 focus:outline-none"/>
-                  <button type="submit" className="pt-2 pb-2 pr-4 pl-4 bg-blue-400 border-2 border-blue-400 text-white rounded-r-xl">Search</button>
-                </form>
+              {/* Logo et Titre */}
+              <div className="flex flex-row gap-2 items-end">
+                <img className="h-12" src="/logo-app.png" alt="Logo CineStudio" />
+                <p className="text-xl font-extralight">CineStudio</p>
               </div>
+
+              {/* Barre de recherche */}
+              <form onSubmit={handlerSearch} className="flex items-center">
+                <input name="search" type="text" placeholder="Rechercher..."
+                  className="pt-2 pb-2 pr-4 pl-4 rounded-l-xl border-gray-200 focus:outline-none w-40"
+                />
+                <button
+                  type="submit"
+                  className="pt-2 pb-2 pr-4 pl-4 bg-blue-900 border-blue-900 text-white rounded-xl"
+                >
+                  Search
+                </button>
+              </form>
             </div>
+          </nav>
+
+          {/* Content*/}
+          <div className=" relative bg-fond bg-fixed p-5 pb-10 md:pr-14 md:pt-40 md:pl-14 xl:pr-44 xl:pl-44 flex flex-col gap-6 ">
 
             {/* Information */}
             <div className=" bg-white p-6 rounded-xl">
