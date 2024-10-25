@@ -38,35 +38,35 @@ export default function Home() {
     <>
       {isLoading && <p>loading....</p>}
       {data && (
-        <div>
+        <div className=" bg-fond bg-fixed pt-4">
 
           {/* Nav */}
-          <nav className=" fixed w-4/5 left-1/2 -translate-x-1/2 top-10 z-10 bg-white p-6 rounded-xl shadow-2xl">
-            <div className="flex gap-4 justify-between items-center flex-col md:flex-row">
-
+          <nav className=" mx-5 md:mr-14 md:mt-10 md:ml-14 xl:mr-44 xl:ml-44 flex flex-col justify-between items-center gap-2">
+            
               {/* Logo et Titre */}
-              <div className="flex flex-row gap-2 items-end">
+              <div className="flex flex-row gap-2 items-end bg-white rounded-xl shadow-2xl p-4 w-full">
                 <img className="h-12" src="/logo-app.png" alt="Logo CineStudio" />
-                <p className="text-xl font-extralight">CineStudio</p>
+                <p className=" text-3xl font-extralight">CineStudio</p>
               </div>
 
               {/* Barre de recherche */}
-              <form onSubmit={handlerSearch} className="flex items-center">
-                <input name="search" type="text" placeholder="Rechercher..."
-                  className="pt-2 pb-2 pr-4 pl-4 rounded-l-xl border-gray-200 focus:outline-none w-40"
-                />
-                <button
-                  type="submit"
-                  className="pt-2 pb-2 pr-4 pl-4 bg-blue-900 border-blue-900 text-white rounded-xl"
-                >
-                  Search
-                </button>
-              </form>
-            </div>
+              <div className="bg-white rounded-xl shadow-2xl p-4 w-full">
+                <form onSubmit={handlerSearch} className="flex items-center justify-between gap-1">
+                  <input name="search" type="text" placeholder="Rechercher..."
+                    className="pt-2 pb-2 pr-4 pl-4 rounded-l-xl border-gray-200 focus:outline-none w-full"
+                  />
+                  <button
+                    type="submit"
+                    className="pt-2 pb-2 pr-4 pl-4 bg-pink-700 border-pink-700 text-white rounded-lg"
+                  >
+                    Search
+                  </button>
+                </form>
+              </div>
           </nav>
 
           {/* Content*/}
-          <div className=" relative bg-fond bg-fixed p-5 pb-10 md:pr-14 md:pt-40 md:pl-14 xl:pr-44 xl:pl-44 flex flex-col gap-6 ">
+          <div className=" p-5 pb-10 md:pr-14 md:pt-5 md:pl-14 xl:pr-44 xl:pl-44 flex flex-col gap-6 ">
 
             {/* Information */}
             <div className=" bg-white p-6 rounded-xl">
@@ -140,7 +140,7 @@ export default function Home() {
                             href="{data?.network.country.officialSite}"
                             className=" decoration-solid"
                           >
-                            Voir le site
+                            See website
                           </a>
                         </div>
 
@@ -171,7 +171,7 @@ export default function Home() {
                         </Button>
 
                         <Button size="default" variant="outline">
-                          Épisode
+                          Episodes
                         </Button>
 
                         <Button size="default" variant="outline">
@@ -203,7 +203,7 @@ export default function Home() {
             <div className=" bg-white pr-6 pl-6 pt-10 pb-10 rounded-xl">
               {/* Carousel */}
               <div className=" mr-10 ml-10 lg:mr-16 lg:ml-16">
-                <h3 className=" text-center font-bold text-3xl pt-6 pb-6">Episode</h3>
+                <h3 className=" text-center font-bold text-3xl pt-6 pb-6">Episodes</h3>
                 <Carousel>
                   <CarouselContent className=" items-stretch">
                     {/* Episode */}
@@ -251,22 +251,23 @@ export default function Home() {
                   {data?._embedded.cast.map((people) => {
                     return (
                       <Card>
-                        <CardHeader>
-                          <div className="flex flex-row gap-2">
+                        <CardHeader className="flex flex-col gap-2">
+                          <CardTitle>{people.person.name}</CardTitle>
+                          <div className="flex flex-row">
                             <img
-                              className="h-40 w-full object-cover object-top overflow-hidden rounded-lg"
+                              className=" h-40 w-full object-cover object-top overflow-hidden rounded-l-lg"
                               src={people.person.image?.original}
                               alt="Photo personne"
                             />
                             <img
-                              className="h-40 w-full object-cover object-top overflow-hidden rounded-lg"
+                              className=" h-40 w-full object-cover object-top overflow-hidden rounded-r-lg"
                               src={people.character.image?.original}
                               alt="Photo personnage"
                             />
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <CardDescription><span className="font-bold">{people.person.name}</span> dans le rôle de <span className="font-bold">{people.character.name}</span> </CardDescription>
+                          <CardDescription>In the role of <span className="font-bold text-pink-800">{people.character.name}</span> </CardDescription>
                         </CardContent>
                       </Card>
                     );
@@ -278,17 +279,14 @@ export default function Home() {
           </div> 
           
           {/* Footer */}
-          <div className=" bg-black p-8">
+          <div className=" mx-6 rounded-t-2xl bg-pink-900 p-8">
               <p className=" text-white text-center">©CineStudio - Tous droits réservés - 2024</p>
 
-              <ul className=" flex flex-row gap-2 justify-center items-center">
-                <li><a className=" text-white text-center font-light" href="">Création par l'Agence Carolane et Mathilde</a></li>
-                <li><a className=" text-white text-center font-light" href="">|</a></li>
-                <li><a className=" text-white text-center font-light" href="">Mentions légales</a></li>
-                <li><a className=" text-white text-center font-light" href="">|</a></li>
-                <li><a className=" text-white text-center font-light" href="">Cookies</a></li>
-                <li><a className=" text-white text-center font-light" href="">|</a></li>
-                <li><a className=" text-white text-center font-light" href="">Politique de confidentialité</a></li>
+              <ul className=" flex flex-col md:flex-row gap-0 md:gap-2 justify-center items-center">
+                <li><a className=" text-white text-center font-light text-sm" href="">Création par l'Agence Carolane et Mathilde</a></li>
+                <li><a className=" text-white text-center font-light text-sm" href="">Mentions légales</a></li>
+                <li><a className=" text-white text-center font-light text-sm" href="">Cookies</a></li>
+                <li><a className=" text-white text-center font-light text-sm" href="">Politique de confidentialité</a></li>
               </ul>
           </div>
 

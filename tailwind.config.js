@@ -6,7 +6,8 @@ export default {
   	extend: {
 		backgroundImage : {
 			'gradient-dark' : 'var(--gradient-dark)',
-			'fond' : 'url("/img-movie-background.jpg")'
+			'gradient-light' : 'var(--gradient-light)',
+			'fond' : 'linear-gradient(180deg, rgba(131,67,99,1) 0%, rgba(255,255,255,0) 75%), url("/img-movie-background.jpg")'
 		},
   		borderRadius: {
   			lg: 'var(--radius)',
