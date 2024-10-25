@@ -20,7 +20,7 @@ import {
 import { useState } from "react";
 
 export default function Home() {
-  const [ url, setUrl ] = useState(" Under the dome ")
+  const [ url, setUrl ] = useState(" grey's anatomy ")
   const { data, isLoading, error } = useFetch(`https://api.tvmaze.com/singlesearch/shows?q=${url}&embed[]=episodes&embed[]=cast&embed[]=seasons`);
   console.log(data)
 
@@ -58,7 +58,7 @@ export default function Home() {
               <div className="bg-white rounded-xl shadow-2xl p-4 w-full">
                 <form onSubmit={handlerSearch} className="flex items-center justify-between gap-1">
                   <input name="search" type="text" placeholder="Rechercher..."
-                    className="pt-2 pb-2 pr-4 pl-4 rounded-l-xl border-gray-200 focus:outline-none w-full"
+                    className="pt-2 pb-2 pr-4 pl-4 rounded-lg border-gray-200 focus:outline-none w-full"
                   />
                   <button
                     type="submit"
@@ -193,7 +193,7 @@ export default function Home() {
                   {/* Affiche */}
                   <div className=" rounded-lg overflow-hidden">
                     <img
-                      className="w-full object-cover"
+                      className="w-full object-cover h-full"
                       src={data?.image?.original}
                       alt=""
                     />
