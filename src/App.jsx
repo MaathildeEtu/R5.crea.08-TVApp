@@ -25,6 +25,11 @@ export default function Home() {
   console.log(data)
 
   const regex = /(<([^>]+)>)/gi;
+  const removeTags = (str) => {
+    if (str === null || str === "") return false;
+    else str = str.toString();
+    return str.replace(regex, "");
+  };
 
   const handlerSearch=(e) => {
     e.preventDefault() ;
@@ -126,7 +131,9 @@ export default function Home() {
                       {/* Description */}
                       <div>
                         <p className=" text-light font-semibold">Description : </p>
-                        <p className=" text-light">{data?.summary.replace(regex, "")}</p>
+                        {/* <p className=" text-light">{data?.summary.replace(regex, "")}</p> */}
+
+                        <p className=" text-light">{removeTags(data?.summary)}</p>
                       </div>
                       {/* Fin Description */}
 
@@ -219,8 +226,12 @@ export default function Home() {
                                   <CardDescription>Episode : {film.number}</CardDescription>
                                 </div>
                                 <CardTitle>{film.name}</CardTitle>
-                                <CardDescription>
+                                {/* <CardDescription>
                                   {film.summary.replace(regex, "")}
+                                </CardDescription> */}
+
+<CardDescription>
+                                  {removeTags(film.summary)}
                                 </CardDescription>
                                 <p>{film.rating.average}/10</p>
                               </CardHeader>
