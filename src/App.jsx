@@ -50,7 +50,7 @@ export default function Home() {
             
               {/* Logo et Titre */}
               <div className="flex flex-row gap-2 items-end bg-white rounded-xl shadow-2xl p-4 w-full">
-                <img className="h-12" src="/logo-app.png" alt="Logo CineStudio" />
+                <img className="h-12" src="./logo-app.png" alt="Logo CineStudio" />
                 <p className=" text-3xl font-extralight">CineStudio</p>
               </div>
 
